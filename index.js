@@ -16,7 +16,7 @@ const main = async () => {
     try {
       await readReminders();
     } catch (error) {
-      // This creates the file if it doesnt exist with an empty array its kinda unecessary
+      // This creates the file if it doesnt exist with an empty array
       if (error.code === "ENOENT") {
         await writeReminders();
       } else {
@@ -33,14 +33,13 @@ const main = async () => {
   const startTimer = async () => {
     if (reminders.length === 0) return console.error("No reminders left");
     sortReminders();
-    // console.log(new Date(reminders[0].date).valueOf() - Date.now());
     if (new Date(reminders[0].date).valueOf() < Date.now()) {
       sendReminder(reminders[0]);
       reminders.shift();
       await writeReminders();
       return startTimer();
     }
-    // This can cause Issues with integers that are above 32 bit but i am honestly too lazy to fix it
+    // This can cause Issues with integers that are above 32 bit
     // I could maybe do this with setInterval instead but i don't want to change it 1 day before presentation
 
     return setTimeout(async () => {
@@ -84,7 +83,6 @@ const main = async () => {
     }
   };
   const listReminders = (reminders) => {
-    // if (reminders) await readReminders();
     console.table(reminders, ["date", "text"]);
   };
 
