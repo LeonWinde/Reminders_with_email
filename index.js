@@ -221,7 +221,7 @@ const main = async () => {
 
   // adds a row to the table for every reminder in reminderList and return a viable html payload 
   const generateHTMLPayload = async (reminderList) => {
-    const htmlFileName = "email.html";
+    const htmlFileName = "emailLayout.html";
     let htmlContent = await fs.readFile(`${process.cwd()}/${htmlFileName}`, {
       encoding: "utf8",
     });
@@ -241,7 +241,7 @@ const main = async () => {
 
   // Generates 5 reminders for the next 5 minutes
   const addTestingReminders = async () => {
-    // creates an array and fills it because forEach only works if the arr els have content
+    // creates an array and fills it because forEach only works if the arr elements have content
     const arr = Array(5).fill("");
     arr.forEach((el, i) => {
       const date = new Date();
