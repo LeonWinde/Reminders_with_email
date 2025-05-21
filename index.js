@@ -41,7 +41,14 @@ const main = async () => {
     }
     // This can cause Issues with integers that are above 32 bit
     // I could maybe do this with setInterval instead but i don't want to change it 1 day before presentation
+    // Check for interval day => hour => minute => second
+    // This is doable with cronjobs i would check once a day for daily reminders and if there are any i would use the Interval method to send the mails
+    // Will have to do research on whether setInterval / setTimeout works on vercel
 
+    // as such i dont have to use SetInterval at all but i have to modify the startTimer function to work with daily reminders
+    // I should change this to use SetInterval on the console version
+
+    // Sets a timeout for the amount of milliseconds between now and the reminder DateTime
     return setTimeout(async () => {
       sendReminder(reminders[0]);
       reminders.shift();
