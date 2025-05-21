@@ -14,7 +14,7 @@ let transporter = nodemailer.createTransport({
 export const sendMail = async (text) => {
     const info = await transporter.sendMail({
         from:` "Leon Winde <${process.env.MY_EMAIL}>`,
-        to: "leon.winde@dci-student.org",
+        to: process.env.TARGET_EMAIL,
         subject: 'YOU HAVE SHIT TODO',
         text
     })
@@ -23,7 +23,7 @@ export const sendMail = async (text) => {
 export const sendHTMLMail = async (html) => {
     const info = await transporter.sendMail({
         from:` "Leon Winde <${process.env.MY_EMAIL}>`,
-        to: "leon.winde@dci-student.org",
+        to: process.env.TARGET_EMAIL,
         subject: 'YOU HAVE SHIT TODO',
         html
     })

@@ -4,7 +4,7 @@ import * as fs from "fs/promises";
 // I could replace with a Date.now() call to use as a unique key
 import { uid } from "uid";
 
-// I regret not using ts I regret having "global" vars. However i have learned a valuable lesson out of creating this abomination of a js program
+// I regret not using ts. However i have learned a valuable lesson out of creating this abomination of a js program
 const main = async () => {
   const filename = "reminders.json";
   let reminders = [];
